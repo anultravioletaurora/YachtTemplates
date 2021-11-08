@@ -12,6 +12,7 @@
         "8334:8334/tcp"
       ],
       "network_mode": "bridge",
+      "logo": "https://raw.githubusercontent.com/mickael-kerjean/filestash/master/.assets/img/logo_primary.svg",
       "type": 1
     },
     {
@@ -52,6 +53,46 @@
         }
       ],
       "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png",
+      "network_mode": "bridge",
+      "type": 1
+    },
+    {
+      "title": "Scrutiny",
+      "name": "scrutiny",
+      "image": "linuxserver/scrutiny",
+      "description": "Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard Drive Health Dashboard & Monitoring solution, merging manufacturer provided S.M.A.R.T metrics with real-world failure rates from Backblaze",
+      "categories": [
+        "Monitoring"
+      ],
+      "platform": "linux",
+      "restart_policy": "unless-stopped",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/Scrutiny"
+        },
+        {
+          "container": "/run/udev",
+          "bind": "/run/udev"
+        }
+      ],
+      "env": [
+        {
+          "name": "PUID",
+          "default": "1000",
+          "description": "PUID",
+          "label": "PUID"
+        },
+        {
+          "name": "PGID",
+          "default": "1000",
+          "description": "PGID",
+          "label": "PGID"
+        }
+      ],
       "network_mode": "bridge",
       "type": 1
     }
