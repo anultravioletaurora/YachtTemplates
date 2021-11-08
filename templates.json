@@ -103,6 +103,12 @@
           "default": "true",
           "description": "SCRUTINY_COLLECTOR",
           "label": "SCRUTINY_COLLECTOR"
+        },
+        {
+          "name": "SCRUTINY_API_ENDPOINT",
+          "default": "http://localhost:8080",
+          "description": "SCRUTINY_API_ENDPOINT",
+          "label": "SCRUTINY_API_ENDPOINT"
         }
       ],
       "network_mode": "bridge",
