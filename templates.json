@@ -91,6 +91,18 @@
           "default": "1000",
           "description": "PGID",
           "label": "PGID"
+        },
+        {
+          "name": "SCRUTINY_WEB",
+          "default": "true",
+          "description": "SCRUTINY_WEB",
+          "label": "SCRUTINY_WEB"
+        },
+        {
+          "name": "SCRUTINY_COLLECTOR",
+          "default": "true",
+          "description": "SCRUTINY_COLLECTOR",
+          "label": "SCRUTINY_COLLECTOR"
         }
       ],
       "network_mode": "bridge",
