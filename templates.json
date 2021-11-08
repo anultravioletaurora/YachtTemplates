@@ -1,117 +1,123 @@
 [
-    {
-      "title": "Filestash",
-      "name": "filestash",
-      "image": "machines/filestash",
-      "categories": [
-        "Admin"
-      ],
-      "platform": "linux",
-      "restart_policy": "unless-stopped",
-      "ports": [
-        "8334:8334/tcp"
-      ],
-      "network_mode": "bridge",
-      "logo": "https://raw.githubusercontent.com/mickael-kerjean/filestash/master/.assets/img/logo_primary.svg",
-      "type": 1
-    },
-    {
-      "title": "Nextcloud",
-      "name": "nextcloud",
-      "image": "linuxserver/nextcloud",
-      "description": "Nextcloud gives you access to all your files wherever you are.\n\nWhere are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
-      "categories": [
-        "Storage"
-      ],
-      "platform": "linux",
-      "restart_policy": "unless-stopped",
-      "ports": [
-        "443:443/tcp"
-      ],
-      "volumes": [
-        {
-          "container": "/config",
-          "bind": "/Nextcloud"
-        },
-        {
-          "container": "/data",
-          "bind": "/Nextcloud"
-        }
-      ],
-      "env": [
-        {
-          "name": "PUID",
-          "default": "1000",
-          "description": "PUID",
-          "label": "PUID"
-        },
-        {
-          "name": "PGID",
-          "default": "1000",
-          "description": "PGID",
-          "label": "PGID"
-        }
-      ],
-      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png",
-      "network_mode": "bridge",
-      "type": 1
-    },
-    {
-      "title": "Scrutiny",
-      "name": "scrutiny",
-      "image": "linuxserver/scrutiny",
-      "description": "Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard Drive Health Dashboard & Monitoring solution, merging manufacturer provided S.M.A.R.T metrics with real-world failure rates from Backblaze",
-      "categories": [
-        "Monitoring"
-      ],
-      "platform": "linux",
-      "restart_policy": "unless-stopped",
-      "ports": [
-        "8080:8080/tcp"
-      ],
-      "volumes": [
-        {
-          "container": "/config",
-          "bind": "/Scrutiny"
-        },
-        {
-          "container": "/run/udev",
-          "bind": "/run/udev"
-        }
-      ],
-      "env": [
-        {
-          "name": "PUID",
-          "default": "1000",
-          "description": "PUID",
-          "label": "PUID"
-        },
-        {
-          "name": "PGID",
-          "default": "1000",
-          "description": "PGID",
-          "label": "PGID"
-        },
-        {
-          "name": "SCRUTINY_WEB",
-          "default": "true",
-          "description": "SCRUTINY_WEB",
-          "label": "SCRUTINY_WEB"
-        },
-        {
-          "name": "SCRUTINY_COLLECTOR",
-          "default": "true",
-          "description": "SCRUTINY_COLLECTOR",
-          "label": "SCRUTINY_COLLECTOR"
-        },
-        {
-          "name": "SCRUTINY_API_ENDPOINT",
-          "default": "http://localhost:8080",
-          "description": "SCRUTINY_API_ENDPOINT",
-          "label": "SCRUTINY_API_ENDPOINT"
-        }
-      ],
-      "network_mode": "bridge",
-      "type": 1
-    }
-  ]
+  {
+    "title": "Filestash",
+    "name": "filestash",
+    "image": "machines/filestash",
+    "categories": [
+      "Admin"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      "8334:8334/tcp"
+    ],
+    "network_mode": "bridge",
+    "logo": "https://raw.githubusercontent.com/mickael-kerjean/filestash/master/.assets/img/logo_primary.svg",
+    "type": 1
+  },
+  {
+    "title": "Nextcloud",
+    "name": "nextcloud",
+    "image": "linuxserver/nextcloud",
+    "description": "Nextcloud gives you access to all your files wherever you are.\n\nWhere are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
+    "categories": [
+      "Storage"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      "443:443/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "/Nextcloud"
+      },
+      {
+        "container": "/data",
+        "bind": "/Nextcloud"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "default": "1000",
+        "description": "PUID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "default": "1000",
+        "description": "PGID",
+        "label": "PGID"
+      }
+    ],
+    "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png",
+    "network_mode": "bridge",
+    "type": 1
+  },
+  {
+    "title": "Scrutiny",
+    "name": "scrutiny",
+    "image": "linuxserver/scrutiny",
+    "description": "Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard Drive Health Dashboard & Monitoring solution, merging manufacturer provided S.M.A.R.T metrics with real-world failure rates from Backblaze",
+    "categories": [
+      "Monitoring"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      "8080:8080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "/Scrutiny"
+      },
+      {
+        "container": "/run/udev",
+        "bind": "/run/udev"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "default": "1000",
+        "description": "PUID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "default": "1000",
+        "description": "PGID",
+        "label": "PGID"
+      },
+      {
+        "name": "SCRUTINY_WEB",
+        "default": "true",
+        "description": "SCRUTINY_WEB",
+        "label": "SCRUTINY_WEB"
+      },
+      {
+        "name": "SCRUTINY_COLLECTOR",
+        "default": "true",
+        "description": "SCRUTINY_COLLECTOR",
+        "label": "SCRUTINY_COLLECTOR"
+      },
+      {
+        "name": "SCRUTINY_API_ENDPOINT",
+        "default": "http://localhost:8080",
+        "description": "SCRUTINY_API_ENDPOINT",
+        "label": "SCRUTINY_API_ENDPOINT"
+      }
+    ],
+    "devices": [
+      {
+        "container": "/dev",
+        "host": "/dev"
+      }
+    ],
+    "network_mode": "bridge",
+    "type": 1
+  }
+]
