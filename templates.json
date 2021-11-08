@@ -3,26 +3,16 @@
       "title": "Filestash",
       "name": "filestash",
       "image": "machines/filestash",
-      "description": "",
       "categories": [
         "Admin"
       ],
       "platform": "linux",
-      "note": "",
       "restart_policy": "unless-stopped",
       "ports": [
-        {
-          "WebUI": "8334:8334/tcp"
-        }
+        "8334:8334/tcp"
       ],
-      "volumes": [],
-      "env": [],
-      "command": [],
-      "devices": [],
-      "labels": [],
-      "sysctls": [],
-      "cap_add": [],
-      "network_mode": "bridge"
+      "network_mode": "bridge",
+      "type": 1
     },
     {
       "title": "Nextcloud",
@@ -33,21 +23,18 @@
         "Storage"
       ],
       "platform": "linux",
-      "note": "",
       "restart_policy": "unless-stopped",
       "ports": [
-        {
-          "WebUI": "443:443/tcp"
-        }
+        "443:443/tcp"
       ],
       "volumes": [
         {
           "container": "/config",
-          "bind": "!config"
+          "bind": "/Nextcloud"
         },
         {
           "container": "/data",
-          "bind": "!documents"
+          "bind": "/Nextcloud"
         }
       ],
       "env": [
@@ -64,12 +51,8 @@
           "label": "PGID"
         }
       ],
-      "command": [],
-      "devices": [],
-      "labels": [],
-      "sysctls": [],
-      "cap_add": [],
       "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png",
-      "network_mode": "bridge"
+      "network_mode": "bridge",
+      "type": 1
     }
   ]
