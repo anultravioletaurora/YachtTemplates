@@ -139,11 +139,11 @@
     "volumes": [
       {
         "container": "/config",
-        "bind": ""
+        "bind": "!config/Deluge"
       },
       {
         "container": "/data",
-        "bind": ""
+        "bind": "!downloads"
       },
       {
         "container": "/etc/localtime",
