@@ -31,11 +31,11 @@
     "volumes": [
       {
         "container": "/config",
-        "bind": "/Nextcloud"
+        "bind": ""
       },
       {
         "container": "/data",
-        "bind": "/Nextcloud"
+        "bind": ""
       }
     ],
     "env": [
@@ -72,7 +72,7 @@
     "volumes": [
       {
         "container": "/config",
-        "bind": "/Scrutiny"
+        "bind": ""
       },
       {
         "container": "/run/udev",
@@ -115,6 +115,149 @@
       {
         "container": "/dev",
         "host": "/dev"
+      }
+    ],
+    "network_mode": "bridge",
+    "type": 1
+  },
+  {
+    "title": "DelugeVPN",
+    "name": "delugevpn",
+    "image": "binhex/arch-delugevpn",
+    "description": "Deluge is a full-featured ​BitTorrent client for Linux, OS X, Unix and Windows. It uses ​libtorrent in its backend and features multiple user-interfaces including: GTK+, web and console. It has been designed using the client server model with a daemon process that handles all the bittorrent activity. The Deluge daemon is able to run on headless machines with the user-interfaces being able to connect remotely from any platform.     This Docker includes OpenVPN and WireGuard to ensure a secure and private connection to the Internet, including use of iptables to prevent IP leakage when the tunnel is down. It also includes Privoxy to allow unfiltered access to index sites, to use Privoxy please point your application at \"http://host ip:8118\".",
+    "categories": [
+      "Downloads"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      "8112:8112/tcp",
+      "8118:8118/tcp",
+      "58846:58846/tcp",
+      "58946:58946/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": ""
+      },
+      {
+        "container": "/data",
+        "bind": ""
+      },
+      {
+        "container": "/etc/localtime",
+        "bind": "/etc/localtime"
+      }
+    ],
+    "env": [
+      {
+        "name": "VPN_ENABLED",
+        "default": "yes | no",
+        "description": "Whether the VPN should be enabled",
+        "label": "VPN_ENABLED"
+      },
+      {
+        "name": "VPN_USER",
+        "default": "",
+        "description": "The username of the VPN user",
+        "label": "VPN_USER"
+      },
+      {
+        "name": "VPN_PASS",
+        "default": "",
+        "description": "The password of the VPN user",
+        "label": "VPN_PASS"
+      },
+      {
+        "name": "VPN_PROV",
+        "default": "pia | airvpn | custom",
+        "description": "The VPN provider",
+        "label": "VPN_PROV"
+      },
+      {
+        "name": "VPN_CLIENT",
+        "default": "openvpn | wireguard",
+        "description": "The VPN client",
+        "label": "VPN_CLIENT"
+      },
+      {
+        "name": "VPN_OPTIONS",
+        "default": "",
+        "description": "Additional OpenVPN CLI options",
+        "label": "VPN_OPTIONS"
+      },
+      {
+        "name": "STRICT_PORT_FORWARD",
+        "default": "yes",
+        "description": "Whether to enable strict port forwarding",
+        "label": "STRICT_PORT_FORWARD"
+      },
+      {
+        "name": "ENABLE_PRIVOXY",
+        "default": "yes",
+        "label": "ENABLE_PRIVOXY",
+        "description": "Whether to enable the Privoxy service on port 8118"
+      },
+      {
+        "name": "LAN_NETWORK",
+        "default": "192.168.1.1/24",
+        "description": "The LAN Network IP range in CIDR notation",
+        "label": "LAN_NETWORK"
+      },
+      {
+        "name": "NAME_SERVERS",
+        "default": "209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1",
+        "description": "The name servers to use",
+        "label": "NAME_SERVERS"
+      },
+      {
+        "name": "DELUGE_DAEMON_LOG_LEVEL",
+        "default": "info",
+        "description": "The Deluge daemon's logging level",
+        "label": "DELUGE_DAEMON_LOG_LEVEL"
+      },
+      {
+        "name": "DELUGE_WEB_LOG_LEVEL",
+        "default": "info",
+        "label": "DELUGE_WEB_LOG_LEVEL",
+        "description": "The Deluge web app logging level"
+      },
+      {
+        "name": "VPN_INPUT_PORTS",
+        "default": "1234",
+        "label": "VPN_INPUT_PORTS",
+        "description": "The VPN's input ports"
+      },
+      {
+        "name": "VPN_OUTPUT_PORTS",
+        "default": "5678",
+        "description": "The VPN's output ports",
+        "label": "VPN_OUTPUT_PORTS"
+      },
+      {
+        "name": "DEBUG",
+        "default": "false",
+        "description": "Debug Mode",
+        "label": "DEBUG"
+      },
+      {
+        "name": "UMASK",
+        "default": "000",
+        "description": "UMASK",
+        "label": "UMASK"
+      },
+      {
+        "name": "PUID",
+        "default": "!PUID",
+        "description": "PUID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "default": "!PGID",
+        "description": "PGID",
+        "label": "PGID"
       }
     ],
     "network_mode": "bridge",
